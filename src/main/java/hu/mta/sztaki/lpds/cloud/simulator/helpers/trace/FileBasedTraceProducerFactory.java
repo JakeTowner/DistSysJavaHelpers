@@ -30,6 +30,7 @@ import java.io.IOException;
 import hu.mta.sztaki.lpds.cloud.simulator.helpers.job.Job;
 import hu.mta.sztaki.lpds.cloud.simulator.helpers.trace.file.GWFReader;
 import hu.mta.sztaki.lpds.cloud.simulator.helpers.trace.file.One2HistoryReader;
+import hu.mta.sztaki.lpds.cloud.simulator.helpers.trace.file.PreziReader;
 import hu.mta.sztaki.lpds.cloud.simulator.helpers.trace.file.SWFReader;
 import hu.mta.sztaki.lpds.cloud.simulator.helpers.trace.filters.Ignore;
 import hu.mta.sztaki.lpds.cloud.simulator.helpers.trace.random.SimpleRandomTraceGenerator;
@@ -91,7 +92,9 @@ public class FileBasedTraceProducerFactory {
 			producer = srtg;
 		} else if (fileName.endsWith(".one2")) {
 			producer = new One2HistoryReader(fileName, from, to, furtherjobs, jobType);
-		} else {
+		} else if(fileName.endsWith(".log")) {
+            producer = new PreziReader(fileName, from, to, furtherjobs, jobType);
+        }else {
 			return null;
 		}
 		File ignoreFile = new File(fileName + ".ign");
