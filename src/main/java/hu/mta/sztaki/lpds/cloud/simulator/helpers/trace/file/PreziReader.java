@@ -173,7 +173,7 @@ public class PreziReader extends TraceFileReaderFoundation {
 					Math.max(1, allocatedProcessors),
 					// average execution time
 					300,
-					// average memory
+					// average memory for job
 					512,
 					// User name:
 					parseTextualField(name),
