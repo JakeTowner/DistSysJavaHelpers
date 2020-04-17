@@ -42,15 +42,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class PreziReader extends TraceFileReaderFoundation {
 
 	/**
-	 * Constructs a "gwf" file reader that later on can act as a trace producer for
+	 * Constructs a "log" file reader that later on can act as a trace producer for
 	 * user side schedulers.
 	 * 
-	 * @param fileName            The full path to the gwf file that should act as
+	 * @param fileName            The full path to the log file that should act as
 	 *                            the source of the jobs produced by this trace
 	 *                            producer.
-	 * @param from                The first job in the gwf file that should be
+	 * @param from                The first job in the log file that should be
 	 *                            produced in the job listing output.
-	 * @param to                  The last job in the gwf file that should be still
+	 * @param to                  The last job in the log file that should be still
 	 *                            in the job listing output.
 	 * @param allowReadingFurther If true the previously listed "to" parameter is
 	 *                            ignored if the "getJobs" function is called on
@@ -68,7 +68,7 @@ public class PreziReader extends TraceFileReaderFoundation {
 	}
 
 	/**
-	 * Determines if a particular line in the GWF file is representing a job
+	 * Determines if a particular line in the log file is representing a job
 	 * 
 	 * Actually ignores empty lines and lines starting with '#'
 	 */
@@ -136,7 +136,7 @@ public class PreziReader extends TraceFileReaderFoundation {
 	 * Supports GWA traces with millisecond time base (useful to load traces
 	 * produced by the ASKALON workflow environment of University of Innsbruck).
 	 *
-	 * Not the entire GWF trace format is supported.
+	 * Not the entire LOG trace format is supported.
 	 */
 	@Override
 	public Job createJobFromLine(String jobstring)
@@ -187,7 +187,7 @@ public class PreziReader extends TraceFileReaderFoundation {
 	}
 
 	/**
-	 * Checks if the particular GWA line entry contains useful data.
+	 * Checks if the particular log line entry contains useful data.
 	 * 
 	 * @param unparsed the text to be checked for usefulness.
 	 * @return the text altered after usefulness checking. If the text is not useful
